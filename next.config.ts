@@ -1,17 +1,20 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // 1. تجاهل أخطاء الـ ESLint أثناء البناء (لضمان عدم توقف النشر بسبب أخطاء بسيطة)
   eslint: {
     ignoreDuringBuilds: true,
   },
-  // 2. تجاهل أخطاء الـ TypeScript أثناء البناء
   typescript: {
     ignoreBuildErrors: true,
   },
-  // 3. إعدادات Webpack لحل مشاكل WalletConnect و pino
   webpack: (config) => {
-    config.externals.push("pino-pretty", "lokijs", "encoding");
+    // نخبر webpack بتجاهل هذه المكتبات لأنها غير ضرورية للمتصفح
+    config.externals.push(
+      "pino-pretty", 
+      "lokijs", 
+      "encoding",
+      "@react-native-async-storage/async-storage" // 👈 هذا هو السطر الجديد الذي يحل المشكلة
+    );
     return config;
   },
 };
