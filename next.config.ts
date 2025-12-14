@@ -1,27 +1,28 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
-  
-  // 1. تجاوز خطأ WebpackError أثناء البناء
-  swcMinify: false, 
-
-  // 2. تجاهل أخطاء التدقيق لضمان الرفع
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
+  // إعدادات لضمان عدم توقف البناء بسبب أخطاء بسيطة
   typescript: {
     ignoreBuildErrors: true,
   },
-
-  // 3. حل مشاكل مكتبات Web3
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+  
   webpack: (config) => {
-    config.externals.push(
-      "pino-pretty", 
-      "lokijs", 
-      "encoding",
-      "@react-native-async-storage/async-storage"
-    );
+    // 1. المكتبات التي يجب استثناؤها (نصوص بسيطة فقط)
+    config.externals.push("pino-pretty", "lokijs", "encoding");
+
+    // 2. الحل الصحيح لمكتبة React Native (Fallback)
+    // هذا يمنع الخطأ Syntax Error ويجعل البناء ينجح
+    config.resolve.fallback = {
+      ...config.resolve.fallback,
+      "fs": false,
+      "net": false,
+      "tls": false,
+      "@react-native-async-storage/async-storage": false, // 👈 النقطة المهمة هنا
+    };
+
     return config;
   },
 };
