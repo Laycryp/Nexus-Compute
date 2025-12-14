@@ -15,7 +15,7 @@ export function Footer() {
           <div className="max-w-sm">
             <Link href="/" className="flex items-center gap-2 mb-4 group">
               {/* اللوقو */}
-              <div className="relative w-12 h-12">
+              <div className="relative w-20 h-20">
                  <Image 
                    src="/logo.png" 
                    alt="Nexus Compute Logo" 

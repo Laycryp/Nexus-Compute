@@ -14,7 +14,7 @@ export function Navbar() {
           {/* Logo & Name */}
           <Link href="/" className="flex items-center gap-4 group">
             {/* ✅ تكبير اللوقو هنا (w-12 h-12) */}
-            <div className="relative w-12 h-12 rounded-xl overflow-hidden shadow-lg shadow-blue-900/20 group-hover:scale-105 transition duration-300">
+            <div className="relative w-20 h-20 rounded-xl overflow-hidden shadow-lg shadow-blue-900/20 group-hover:scale-105 transition duration-300">
               <Image 
                 src="/logo.png" 
                 alt="Nexus Compute Logo"
