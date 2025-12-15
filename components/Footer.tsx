@@ -1,7 +1,8 @@
 // المسار: src/components/Footer.tsx
 'use client';
 
-import { Twitter, Disc, Send, Youtube } from 'lucide-react';
+// حذفنا Twitter من هنا لأننا لن نستخدمه
+import { Disc, Send, Youtube } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -33,13 +34,18 @@ export function Footer() {
 
           {/* Social Icons */}
           <div className="flex gap-4">
-            {/* Twitter (Active with your link) */}
+            {/* X (Twitter سابقا) - Active with your link */}
             <a 
-               href="https://x.com/NexCompute"  // ✅ تم وضع رابط حسابك هنا
-               target="_blank" 
-               rel="noopener noreferrer" 
-               className="w-10 h-10 bg-slate-900 rounded-full flex items-center justify-center text-blue-400 hover:bg-blue-900/20 hover:text-blue-300 transition border border-slate-800">
-              <Twitter className="w-5 h-5" />
+                href="https://x.com/NexCompute"  // ✅ الرابط صحيح
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="w-10 h-10 bg-slate-900 rounded-full flex items-center justify-center text-blue-400 hover:bg-blue-900/20 hover:text-blue-300 transition border border-slate-800">
+              
+              {/* أيقونة X الرسمية (SVG) */}
+              <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
+                <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z" />
+              </svg>
+
             </a>
 
             {/* Discord (Inactive) */}
