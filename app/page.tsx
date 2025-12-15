@@ -29,9 +29,9 @@ export default function Home() {
           </p>
         </div>
 
-        {/* Call to Action: Connect Button */}
+        {/* Call to Action: Connect Button - (تم إزالة الرمز هنا) */}
         <div className="transform scale-125 transition hover:scale-130">
-          <ConnectButton label="Launch App 🚀" />
+          <ConnectButton label="Launch App" />
         </div>
 
         {/* Features Grid (Optional: Adds professional look) */}
